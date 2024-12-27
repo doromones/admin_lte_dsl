@@ -11,8 +11,13 @@ module AdminLteDsl
         template.html_safe
       end
 
-      def link(&block)
-        @links << @view_context.instance_eval(&block) if block
+      def link(name = nil, path = nil, options = {}, &block)
+        if block
+          @links << @view_context.instance_eval(&block)
+        else
+          options[:class] ||= 'nav-link'
+          @links << @view_context.link_to(name, path, class: options[:class])
+        end
       end
 
       private
