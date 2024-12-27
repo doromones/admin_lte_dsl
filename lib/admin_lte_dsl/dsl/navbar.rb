@@ -24,9 +24,7 @@ module AdminLteDsl
 
       def build_links
         @links.map do |link|
-          <<~HTML
-              <li class="nav-item">#{link}</li>
-          HTML
+          "<li class=\"nav-item\">#{link}</li>"
         end
       end
 
