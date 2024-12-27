@@ -1,7 +1,7 @@
 require_relative "lib/admin_lte_dsl/version"
 
 Gem::Specification.new do |spec|
-  spec.name        = "admin-lte-dsl"
+  spec.name        = "admin_lte_dsl"
   spec.version     = AdminLteDsl::VERSION
   spec.authors     = [ "a.radushev" ]
   spec.email       = [ "anton@radushev.dev" ]

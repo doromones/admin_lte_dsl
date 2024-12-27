@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    admin-lte-dsl (0.1.0)
+    admin_lte_dsl (0.1.0)
       rails (>= 8.0.1)
 
 GEM
@@ -232,7 +232,7 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
-  admin-lte-dsl!
+  admin_lte_dsl!
   puma
   rubocop-rails-omakase
 
