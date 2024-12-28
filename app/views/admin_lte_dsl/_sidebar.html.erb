@@ -18,16 +18,9 @@
         role="menu"
         data-accordion="false"
       >
-        <li class="nav-item">
-          <%= link_to admin_root_url, class: 'nav-link active' do %>
-            <i class="nav-icon bi bi-circle"></i>
-            <p>Dashboard v1</p>
-          <% end %>
-
-          <% nav_items.each do |nav_item| %>
-            <%= nav_item %>
-          <% end %>
-        </li>
+        <% nav_items.each do |nav_item| %>
+          <%= nav_item %>
+        <% end %>
       </ul>
     </nav>
   </div>

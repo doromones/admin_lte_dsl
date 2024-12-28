@@ -3,6 +3,26 @@ require "admin_lte_dsl/dsl/base"
 module AdminLteDsl
   module DSL
     class Sidebar < Base
+      class TreeViewItems < Base
+        def builder(&block)
+          @nav_items = []
+
+          block.call(self) if block
+
+          @nav_items
+        end
+
+        def nav_item(text, path, bootstrap_icon = nil)
+          locals = {
+            text: text,
+            path: path,
+            bootstrap_icon: bootstrap_icon,
+          }
+
+          @nav_items << @view_context.render(partial: AdminLteDsl.config.dsl.sidebar.nav_item_path, locals: locals)
+        end
+      end
+
       def builder(&block)
         @nav_items = []
 
@@ -42,6 +62,16 @@ module AdminLteDsl
         }
 
         @nav_items << @view_context.render(partial: AdminLteDsl.config.dsl.sidebar.nav_item_path, locals: locals)
+      end
+
+      def nav_tree_view(text, bootstrap_icon = nil, &block)
+        locals = {
+          text: text,
+          bootstrap_icon: bootstrap_icon,
+          tree_view_items: TreeViewItems.new(@view_context).builder(&block),
+        }
+
+        @nav_items << @view_context.render(partial: AdminLteDsl.config.dsl.sidebar.nav_tree_view_path, locals: locals)
       end
 
       private
