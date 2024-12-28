@@ -23,13 +23,16 @@ class AdminLteDsl::DSL::NavBarTest < ActiveSupport::TestCase
           <i class="bi bi-list"></i>
         </a>
       </li>
-      <li class="nav-item d-none d-md-block">
-         <li class="nav-item"><a class="nav-link" href="#">Test Link</a></li><li class="nav-item"><a class="nav-link" href="#">Test Link 2</a></li>
-      </li>
+        <li class="nav-item d-none d-md-block">
+          <a class="nav-link" href="#">Test Link</a>
+        </li>
+        <li class="nav-item d-none d-md-block">
+          <a class="nav-link" href="#">Test Link 2</a>
+        </li>
     </ul>
   </div>
 </nav>
-    HTML
+HTML
 
     assert_equal expectation, result
   end

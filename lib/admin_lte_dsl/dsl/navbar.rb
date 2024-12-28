@@ -9,7 +9,7 @@ module AdminLteDsl
       def builder(&block)
         block.call(self) if block
 
-        @view_context.render(partial: AdminLteDsl.config.views.navbar, locals: { links: @links })
+        @view_context.render(partial: AdminLteDsl.config.dsl.navbar.path, locals: { links: @links })
       end
 
       def link(name = nil, path = nil, options = {}, &block)
