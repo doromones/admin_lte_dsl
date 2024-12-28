@@ -14,6 +14,8 @@ module AdminLteDsl
 
     setting :sidebar do
       setting :path, default: "admin_lte_dsl/sidebar"
+      setting :nav_header_path, default: "admin_lte_dsl/sidebar/nav_header"
+      setting :nav_item_path, default: "admin_lte_dsl/sidebar/nav_item"
     end
   end
 

@@ -28,7 +28,20 @@ module AdminLteDsl
       end
 
       def nav_header(text)
-        @nav_items << "<li class=\"nav-header\">#{text}</li>".html_safe
+        locals = {
+          text: text
+        }
+        @nav_items << @view_context.render(partial: AdminLteDsl.config.dsl.sidebar.nav_header_path, locals: locals)
+      end
+
+      def nav_item(text, path, bootstrap_icon = nil)
+        locals = {
+          text: text,
+          path: path,
+          bootstrap_icon: bootstrap_icon,
+        }
+
+        @nav_items << @view_context.render(partial: AdminLteDsl.config.dsl.sidebar.nav_item_path, locals: locals)
       end
 
       private
