@@ -1,15 +1,13 @@
+require "admin_lte_dsl/dsl/base"
+
 module AdminLteDsl
   module DSL
-    class Navbar
-      def initialize(view_context)
-        @links = []
-        @view_context = view_context
-      end
-
+    class Navbar < Base
       def builder(&block)
+        @links = []
         block.call(self) if block
 
-        @view_context.render(partial: AdminLteDsl.config.dsl.navbar.path, locals: { links: @links })
+        @view_context.render(partial: AdminLteDsl.config.dsl.navbar.path, locals: locals)
       end
 
       def link(name = nil, path = nil, options = {}, &block)
@@ -19,6 +17,14 @@ module AdminLteDsl
           options[:class] ||= "nav-link"
           @links << @view_context.link_to(name, path, class: options[:class])
         end
+      end
+
+      private
+
+      def locals
+        {
+          links: @links
+        }
       end
     end
   end

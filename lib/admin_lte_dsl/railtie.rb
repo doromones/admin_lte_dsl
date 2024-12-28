@@ -1,5 +1,4 @@
 require "admin_lte_dsl/helpers"
-require "admin_lte_dsl/dsl/navbar"
 
 module AdminLteDsl
   class Railtie < ::Rails::Railtie

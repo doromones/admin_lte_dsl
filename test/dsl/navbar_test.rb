@@ -5,7 +5,7 @@ class TestController < ActionController::Base
 end
 
 class AdminLteDsl::DSL::NavBarTest < ActiveSupport::TestCase
-  test "AdminLteDsl::Helpers::Navbar" do
+  test "AdminLteDsl::DSL::Navbar" do
     @controller_view = TestController.new.view_context
 
     result =
