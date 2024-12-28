@@ -1,0 +1,27 @@
+<aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="<%= theme %>">
+  <div class="sidebar-brand">
+    <a class='brand-link' href='<%= brand_link %>'>
+      <img
+        src="<%= brand_logo_src %>"
+        alt="<%= brand_logo_alt %>"
+        class="brand-image opacity-75 shadow"
+        />
+      <span class="brand-text fw-light"><%= brand_name %></span>
+    </a>
+  </div>
+
+  <div class="sidebar-wrapper">
+    <nav class="mt-2">
+      <ul
+        class="nav sidebar-menu flex-column"
+        data-lte-toggle="treeview"
+        role="menu"
+        data-accordion="false"
+      >
+        <% nav_items.each do |nav_item| %>
+          <%= nav_item %>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</aside>

@@ -1,0 +1,16 @@
+<li class="nav-item">
+  <a href="#" class="nav-link">
+    <% if bootstrap_icon %>
+      <i class="nav-icon bi <%= bootstrap_icon %>"></i>
+    <% end %>
+    <p>
+      <%= text %>
+      <i class="nav-arrow bi bi-chevron-right"></i>
+    </p>
+  </a>
+  <ul class="nav nav-treeview">
+    <% tree_view_items.each do |tree_view_item| %>
+      <%= tree_view_item %>
+    <% end %>
+  </ul>
+</li>
