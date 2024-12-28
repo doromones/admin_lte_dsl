@@ -8,5 +8,11 @@ module AdminLteDsl
         include AdminLteDsl::Helpers
       end
     end
+
+    initializer "admin_lte_dsl.add_view_paths", after: :add_view_paths do |_app|
+      ActiveSupport.on_load(:action_controller) do
+        append_view_path AdminLteDsl.root.join("app/views").to_s
+      end
+    end
   end
 end

@@ -8,7 +8,8 @@ module AdminLteDsl
 
       def builder(&block)
         block.call(self) if block
-        template.html_safe
+
+        @view_context.render(partial: AdminLteDsl.config.views.navbar, locals: { links: @links })
       end
 
       def link(name = nil, path = nil, options = {}, &block)
@@ -18,33 +19,6 @@ module AdminLteDsl
           options[:class] ||= "nav-link"
           @links << @view_context.link_to(name, path, class: options[:class])
         end
-      end
-
-      private
-
-      def build_links
-        @links.map do |link|
-          "<li class=\"nav-item\">#{link}</li>"
-        end
-      end
-
-      def template
-        <<~HTML
-          <nav class="app-header navbar navbar-expand bg-body">
-            <div class="container-fluid">
-              <ul class="navbar-nav">
-                <li class="nav-item">
-                  <a class="nav-link" data-lte-toggle="sidebar" href="#" role="button">
-                    <i class="bi bi-list"></i>
-                  </a>
-                </li>
-                <li class="nav-item d-none d-md-block">
-                   #{build_links.join}
-                </li>
-              </ul>
-            </div>
-          </nav>
-        HTML
       end
     end
   end
